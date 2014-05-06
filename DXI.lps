@@ -54,8 +54,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="150"/>
-        <CursorPos X="64" Y="155"/>
+        <TopLine Value="62"/>
+        <CursorPos X="1" Y="72"/>
         <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -108,123 +108,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="d3dproxy.pas"/>
-        <Caret Line="17" Column="27" TopLine="7"/>
+        <Caret Line="44" Column="1" TopLine="31"/>
       </Position1>
       <Position2>
         <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="17" Column="35" TopLine="2"/>
+        <Caret Line="148" Column="33" TopLine="138"/>
       </Position2>
       <Position3>
         <Filename Value="d3dproxy.pas"/>
-        <Caret Line="44" Column="1" TopLine="31"/>
+        <Caret Line="44" Column="27" TopLine="34"/>
       </Position3>
       <Position4>
         <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="148" Column="33" TopLine="138"/>
+        <Caret Line="17" Column="18" TopLine="7"/>
       </Position4>
       <Position5>
-        <Filename Value="d3dproxy.pas"/>
-        <Caret Line="44" Column="27" TopLine="34"/>
+        <Filename Value="exportinfo.pas"/>
+        <Caret Line="163" Column="33" TopLine="150"/>
       </Position5>
       <Position6>
-        <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="17" Column="18" TopLine="7"/>
+        <Filename Value="exportinfo.pas"/>
+        <Caret Line="165" Column="19" TopLine="138"/>
       </Position6>
       <Position7>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="163" Column="33" TopLine="150"/>
+        <Caret Line="163" Column="21" TopLine="140"/>
       </Position7>
       <Position8>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="165" Column="19" TopLine="138"/>
+        <Caret Line="155" Column="50" TopLine="145"/>
       </Position8>
       <Position9>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="163" Column="21" TopLine="140"/>
+        <Caret Line="165" Column="23" TopLine="145"/>
       </Position9>
       <Position10>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="155" Column="50" TopLine="145"/>
-      </Position10>
-      <Position11>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="165" Column="23" TopLine="145"/>
-      </Position11>
-      <Position12>
         <Filename Value="lib\i386-win32\d3d9\Direct3D9.pas"/>
         <Caret Line="3831" Column="19" TopLine="3805"/>
-      </Position12>
-      <Position13>
+      </Position10>
+      <Position11>
         <Filename Value="lib\i386-win32\d3d9\Direct3D9.pas"/>
         <Caret Line="3587" Column="21" TopLine="3569"/>
+      </Position11>
+      <Position12>
+        <Filename Value="exportinfo.pas"/>
+        <Caret Line="162" Column="28" TopLine="150"/>
+      </Position12>
+      <Position13>
+        <Filename Value="exportinfo.pas"/>
+        <Caret Line="155" Column="64" TopLine="136"/>
       </Position13>
       <Position14>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="162" Column="28" TopLine="150"/>
+        <Caret Line="158" Column="15" TopLine="150"/>
       </Position14>
       <Position15>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="155" Column="64" TopLine="136"/>
+        <Caret Line="161" Column="5" TopLine="151"/>
       </Position15>
       <Position16>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="158" Column="15" TopLine="150"/>
+        <Caret Line="153" Column="61" TopLine="150"/>
       </Position16>
       <Position17>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="161" Column="5" TopLine="151"/>
+        <Caret Line="167" Column="37" TopLine="152"/>
       </Position17>
       <Position18>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="153" Column="61" TopLine="150"/>
+        <Caret Line="165" Column="14" TopLine="155"/>
       </Position18>
       <Position19>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="167" Column="37" TopLine="152"/>
+        <Caret Line="164" Column="24" TopLine="155"/>
       </Position19>
       <Position20>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="165" Column="14" TopLine="155"/>
+        <Caret Line="161" Column="48" TopLine="151"/>
       </Position20>
       <Position21>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="164" Column="24" TopLine="155"/>
+        <Filename Value="d3ddevice9proxy.pas"/>
+        <Caret Line="154" Column="33" TopLine="132"/>
       </Position21>
       <Position22>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="161" Column="48" TopLine="151"/>
+        <Filename Value="d3ddevice9proxy.pas"/>
+        <Caret Line="756" Column="5" TopLine="721"/>
       </Position22>
       <Position23>
         <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="154" Column="33" TopLine="132"/>
+        <Caret Line="154" Column="33" TopLine="144"/>
       </Position23>
       <Position24>
         <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="756" Column="5" TopLine="721"/>
+        <Caret Line="749" Column="30" TopLine="721"/>
       </Position24>
       <Position25>
-        <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="154" Column="33" TopLine="144"/>
-      </Position25>
-      <Position26>
-        <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="749" Column="30" TopLine="721"/>
-      </Position26>
-      <Position27>
-        <Filename Value="d3dproxy.pas"/>
-        <Caret Line="8" Column="42" TopLine="22"/>
-      </Position27>
-      <Position28>
         <Filename Value="d3dproxy.pas"/>
         <Caret Line="137" Column="87" TopLine="123"/>
-      </Position28>
-      <Position29>
+      </Position25>
+      <Position26>
         <Filename Value="d3dproxy.pas"/>
         <Caret Line="136" Column="27" TopLine="109"/>
+      </Position26>
+      <Position27>
+        <Filename Value="exportinfo.pas"/>
+        <Caret Line="161" Column="48" TopLine="141"/>
+      </Position27>
+      <Position28>
+        <Filename Value="exportinfo.pas"/>
+        <Caret Line="101" Column="5" TopLine="43"/>
+      </Position28>
+      <Position29>
+        <Filename Value="exportinfo.pas"/>
+        <Caret Line="59" Column="42" TopLine="49"/>
       </Position29>
       <Position30>
         <Filename Value="exportinfo.pas"/>
-        <Caret Line="161" Column="48" TopLine="141"/>
+        <Caret Line="71" Column="86" TopLine="49"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

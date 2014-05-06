@@ -52,10 +52,48 @@ type
 implementation
 
 
+type
+  ConsoleForegroundColours = (
+    BLACK             = 0,
+    DARKBLUE          = FOREGROUND_BLUE,
+    DARKGREEN         = FOREGROUND_GREEN,
+    DARKCYAN          = FOREGROUND_GREEN or FOREGROUND_BLUE,
+    DARKRED           = FOREGROUND_RED,
+    DARKMAGENTA       = FOREGROUND_RED or FOREGROUND_BLUE,
+    DARKYELLOW        = FOREGROUND_RED or FOREGROUND_GREEN,
+    DARKGRAY          = FOREGROUND_RED or FOREGROUND_GREEN or FOREGROUND_BLUE,
+    GRAY              = FOREGROUND_INTENSITY,
+    BLUE              = FOREGROUND_INTENSITY or FOREGROUND_BLUE,
+    GREEN             = FOREGROUND_INTENSITY or FOREGROUND_GREEN,
+    CYAN              = FOREGROUND_INTENSITY or FOREGROUND_GREEN or FOREGROUND_BLUE,
+    RED               = FOREGROUND_INTENSITY or FOREGROUND_RED,
+    MAGENTA           = FOREGROUND_INTENSITY or FOREGROUND_RED or FOREGROUND_BLUE,
+    YELLOW            = FOREGROUND_INTENSITY or FOREGROUND_RED or FOREGROUND_GREEN,
+    WHITE             = FOREGROUND_INTENSITY or FOREGROUND_RED or FOREGROUND_GREEN or FOREGROUND_BLUE
+  );
+
+Procedure SetConsoleColour(var Attributes: Integer; Colour: Integer);
+var
+  hStdout: HANDLE;
+  Info: CONSOLE_SCREEN_BUFFER_INFO;
+begin
+  hStdout := GetStdHandle(STD_OUTPUT_HANDLE);
+  GetConsoleScreenBufferInfo(hStdout, @Info);
+  Attributes := Info.wAttributes;
+  SetConsoleTextAttribute(hStdout, Colour);
+end;
+
+Procedure ResetConsoleColour(Attributes: Integer);
+begin
+  SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Attributes);
+end;
+
 Function Initialize(): Boolean;
 var
   Root: Array of TChar;
+  Attributes: Integer;
 begin
+  Attributes := 0;
   SetLength(Root, MAX_PATH);
   GetSystemDirectoryA(@Root[0], MAX_PATH);
   StrCat(@Root[0], '\d3d9.dll');
@@ -79,7 +117,12 @@ begin
     d3d9.PSGPSampleTexture := GetProcAddress(OriginalDX, 'PSGPSampleTexture');
     d3d9.Direct3DCreate9Ex := GetProcAddress(OriginalDX, 'Direct3DCreate9Ex');
   end else
-    Result := False;
+    begin
+      SetConsoleColour(Attributes, Ord(ConsoleForegroundColours.RED));
+      writeln('ERROR');
+      ResetConsoleColour(Attributes);
+      Result := False;
+    end;
 
   SetLength(Root, 0);
   Result := True;

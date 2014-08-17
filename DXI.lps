@@ -4,27 +4,28 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="14">
+    <Units Count="15">
       <Unit0>
         <Filename Value="DXI.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="DXI"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="18"/>
-        <CursorPos X="56" Y="34"/>
-        <UsageCount Value="44"/>
+        <TopLine Value="3"/>
+        <CursorPos X="12" Y="21"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="smartplugin.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SmartPlugin"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="176"/>
-        <CursorPos X="28" Y="203"/>
-        <UsageCount Value="44"/>
+        <TopLine Value="119"/>
+        <CursorPos X="1" Y="137"/>
+        <UsageCount Value="48"/>
+        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="direct3ddevice9proxy.pas"/>
@@ -33,46 +34,44 @@
         <WindowIndex Value="0"/>
         <TopLine Value="97"/>
         <CursorPos X="6" Y="1"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="44"/>
       </Unit2>
       <Unit3>
         <Filename Value="d3dproxy.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="D3DProxy"/>
-        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="46"/>
-        <CursorPos X="4" Y="43"/>
-        <UsageCount Value="39"/>
-        <Loaded Value="True"/>
+        <TopLine Value="129"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="43"/>
       </Unit3>
       <Unit4>
         <Filename Value="exportinfo.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ExportInfo"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="95"/>
-        <CursorPos X="30" Y="126"/>
-        <UsageCount Value="36"/>
+        <TopLine Value="86"/>
+        <CursorPos X="1" Y="89"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="lib\i386-win32\d3d9\Direct3D9.pas"/>
         <UnitName Value="Direct3D9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1430"/>
-        <CursorPos X="31" Y="1443"/>
+        <TopLine Value="376"/>
+        <CursorPos X="3" Y="388"/>
         <UsageCount Value="19"/>
       </Unit5>
       <Unit6>
         <Filename Value="d3ddevice9proxy.pas"/>
         <UnitName Value="D3DDevice9Proxy"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="37" Y="18"/>
-        <UsageCount Value="19"/>
+        <TopLine Value="361"/>
+        <CursorPos X="6" Y="369"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -127,130 +126,142 @@
         <CursorPos X="1" Y="1"/>
         <UsageCount Value="10"/>
       </Unit13>
+      <Unit14>
+        <Filename Value="dxhooks.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="DXHooks"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="49"/>
+        <CursorPos X="7" Y="55"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+      </Unit14>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="73" Column="13" TopLine="60"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="15" Column="45" TopLine="2"/>
       </Position1>
       <Position2>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="75" Column="25" TopLine="60"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="11" Column="62" TopLine="1"/>
       </Position2>
       <Position3>
-        <Filename Value="d3dproxy.pas"/>
-        <Caret Line="145" Column="116" TopLine="129"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="15" Column="52" TopLine="1"/>
       </Position3>
       <Position4>
-        <Filename Value="d3dproxy.pas"/>
-        <Caret Line="69" Column="15" TopLine="51"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="26" Column="18" TopLine="19"/>
       </Position4>
       <Position5>
-        <Filename Value="d3dproxy.pas"/>
-        <Caret Line="132" Column="27" TopLine="111"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="11" Column="52" TopLine="5"/>
       </Position5>
       <Position6>
-        <Filename Value="d3dproxy.pas"/>
-        <Caret Line="41" Column="46" TopLine="28"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="22" Column="68" TopLine="11"/>
       </Position6>
       <Position7>
-        <Filename Value="d3dproxy.pas"/>
-        <Caret Line="50" Column="26" TopLine="37"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="24" Column="57" TopLine="11"/>
       </Position7>
       <Position8>
-        <Filename Value="d3dproxy.pas"/>
-        <Caret Line="60" Column="26" TopLine="47"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="26" Column="63" TopLine="13"/>
       </Position8>
       <Position9>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="72" Column="56" TopLine="61"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="27" Column="62" TopLine="14"/>
       </Position9>
       <Position10>
-        <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="159" Column="33" TopLine="154"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="59" Column="3" TopLine="18"/>
       </Position10>
       <Position11>
-        <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="751" Column="33" TopLine="730"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="32" Column="65" TopLine="18"/>
       </Position11>
       <Position12>
-        <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="151" Column="44" TopLine="136"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="34" Column="79" TopLine="28"/>
       </Position12>
       <Position13>
-        <Filename Value="d3dproxy.pas"/>
-        <Caret Line="140" Column="104" TopLine="121"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="46" Column="22" TopLine="39"/>
       </Position13>
       <Position14>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="63" Column="41" TopLine="58"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="49" Column="31" TopLine="37"/>
       </Position14>
       <Position15>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="69" Column="24" TopLine="60"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="55" Column="52" TopLine="40"/>
       </Position15>
       <Position16>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="71" Column="5" TopLine="58"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="59" Column="10" TopLine="40"/>
       </Position16>
       <Position17>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="52" Column="1" TopLine="44"/>
+        <Filename Value="d3ddevice9proxy.pas"/>
+        <Caret Line="370" Column="54" TopLine="427"/>
       </Position17>
       <Position18>
         <Filename Value="DXI.lpr"/>
-        <Caret Line="9" Column="18" TopLine="5"/>
+        <Caret Line="21" Column="12" TopLine="3"/>
       </Position18>
       <Position19>
-        <Filename Value="DXI.lpr"/>
-        <Caret Line="6" Column="58" TopLine="1"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="47" Column="18" TopLine="34"/>
       </Position19>
       <Position20>
-        <Filename Value="DXI.lpr"/>
-        <Caret Line="47" Column="27" TopLine="25"/>
+        <Filename Value="smartplugin.pas"/>
+        <Caret Line="81" Column="24" TopLine="72"/>
       </Position20>
       <Position21>
-        <Filename Value="DXI.lpr"/>
-        <Caret Line="50" Column="5" TopLine="4"/>
+        <Filename Value="smartplugin.pas"/>
+        <Caret Line="89" Column="38" TopLine="81"/>
       </Position21>
       <Position22>
-        <Filename Value="DXI.lpr"/>
-        <Caret Line="49" Column="30" TopLine="27"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="15" Column="1" TopLine="8"/>
       </Position22>
       <Position23>
-        <Filename Value="DXI.lpr"/>
-        <Caret Line="47" Column="27" TopLine="28"/>
+        <Filename Value="smartplugin.pas"/>
+        <Caret Line="11" Column="45" TopLine="3"/>
       </Position23>
       <Position24>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="115" Column="24" TopLine="100"/>
+        <Filename Value="smartplugin.pas"/>
+        <Caret Line="89" Column="25" TopLine="80"/>
       </Position24>
       <Position25>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="91" Column="18" TopLine="68"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="34" Column="5" TopLine="28"/>
       </Position25>
       <Position26>
-        <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="18" Column="37" TopLine="1"/>
+        <Filename Value="smartplugin.pas"/>
+        <Caret Line="199" Column="52" TopLine="180"/>
       </Position26>
       <Position27>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="93" Column="78" TopLine="72"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="52" Column="65" TopLine="44"/>
       </Position27>
       <Position28>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="91" Column="20" TopLine="79"/>
+        <Filename Value="smartplugin.pas"/>
+        <Caret Line="184" Column="6" TopLine="163"/>
       </Position28>
       <Position29>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="93" Column="84" TopLine="80"/>
+        <Filename Value="smartplugin.pas"/>
+        <Caret Line="139" Column="13" TopLine="136"/>
       </Position29>
       <Position30>
-        <Filename Value="exportinfo.pas"/>
-        <Caret Line="130" Column="55" TopLine="108"/>
+        <Filename Value="smartplugin.pas"/>
+        <Caret Line="141" Column="13" TopLine="136"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

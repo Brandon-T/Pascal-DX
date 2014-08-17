@@ -49,7 +49,9 @@ Procedure SMARTPluginInit(ptr: PSmartInfo; ReplaceButtons: PBool; ButtonCount: P
 
 implementation
 
-
+const
+  BtnIDs: array [0..1] of Integer = (100, 101);
+  BtnTexts: array[0..1] of PChar = ('Disable Direct-X_Enable Direct-X', 'Enable Debug_Disable dxDebug');
 
 
 
@@ -73,25 +75,15 @@ begin
 end;
 
 Procedure SMARTPluginInit(ptr: PSmartInfo; ReplaceButtons: PBool; ButtonCount: PInt; ButtonText: PPPChar; ButtonIDs: PPInt; ButtonCallback: PSMARTButtonPressed) cdecl;
-var
-  ButtonTexts: PPChar;
-  IDs: PInt;
 begin
   SmartGlobal := ptr;
+
   if (ptr <> nil) then
   begin
     ReplaceButtons^ := True;
-    ButtonTexts := AllocMem(SizeOf(PChar) * 2);
-    ButtonTexts[0] := 'Disable Direct-X_Enable Direct-X';
-    ButtonTexts[1] := 'Enable Debug_Disable dxDebug';
-
-    IDs := AllocMem(Sizeof(Integer) * 2);
-    IDs[0] := 100;
-    IDs[1] := 101;
-
     ButtonCount^ := 2;
-    ButtonText^ := ButtonTexts;
-    ButtonIDs^ := IDs;
+    ButtonText^ := @BtnTexts[0];
+    ButtonIDs^ := @BtnIDs[0];
     ButtonCallback^ := @SMART_ButtonPressed;
   end;
 end;
@@ -117,7 +109,7 @@ begin
   Texture.LockRect(0, Rect, nil, D3DLOCK_DISCARD);
   TexturePixels := Rect.pBits;
   Texture.UnlockRect(0);
-  Move(TexturePixels, Buffer, Width * Height * 4);
+  Move(Buffer, TexturePixels, Width * Height * 4);
 end;
 
 Procedure DrawTexture(Device: IDirect3DDevice9; Texture: IDirect3DTexture9; X1, Y1, X2, Y2: Single);
@@ -198,8 +190,6 @@ begin
       Format := Descriptor.Format;
     end;
 
-    DC := 0;
-    //RenderTarget.GetDC(DC);
     Result := Device.CreateOffscreenPlainSurface(Width, Height, Format, D3DPOOL_SYSTEMMEM, DestTarget, nil);
     Result := Device.GetRenderTargetData(RenderTarget, DestTarget);
     DestTarget.LockRect(Rect, nil, D3DLOCK_READONLY);
@@ -215,12 +205,11 @@ Procedure DrawCircle(Device: IDirect3DDevice9; MX, MY, R: Single; Colour: D3DCOL
 const
   Resolution = 10;
   VERTEX_FVF_TEX = (D3DFVF_XYZRHW or D3DFVF_DIFFUSE or D3DFVF_TEX1);
-
 var
   I: Integer;
   Vertices: Array[0 .. Resolution - 1] of D3DVertex;
 begin
-  For I := 0 To Resolution Do
+  For I := 0 To Resolution - 1 Do
   begin
     Vertices[I].X := MX + R * cos(3.141592654 * (I / (Resolution / 2.0)));
     Vertices[I].Y := MY + R * sin(3.141592654 * (I / (Resolution / 2.0)));

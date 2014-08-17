@@ -5,7 +5,7 @@ unit D3DDevice9Proxy;
 interface
 
 uses
-  Classes, SysUtils, Direct3D9, Windows;
+  Classes, SysUtils, Direct3D9, Windows, DXHooks;
 
 type
   PIDirect3DDevice9 = ^IDirect3DDevice9;
@@ -167,7 +167,7 @@ function Direct3DDevice9Proxy._Release: LongInt; stdcall;
 begin
   Result := ptr_Direct3DDevice9._Release();
   if (Result = 0) then
-    FreeMem(Self);
+    Self.Destroy;
 end;
 
 function Direct3DDevice9Proxy.TestCooperativeLevel: HResult; stdcall;
@@ -367,6 +367,7 @@ end;
 
 function Direct3DDevice9Proxy.EndScene: HResult; stdcall;
 begin
+  EndSceneHook(ptr_Direct3DDevice9);
   Result := ptr_Direct3DDevice9.EndScene;
 end;
 

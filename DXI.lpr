@@ -3,7 +3,8 @@ library DXI;
 {$mode objfpc}{$H+}
 
 uses
-  Classes, SysUtils, Windows, Direct3D9, D3DProxy, ExportInfo;
+  Classes, SysUtils, Windows, Direct3D9, D3DProxy, ExportInfo, SmartPlugin,
+  DXHooks;
 
 procedure DllMain(Reason: PtrInt);
 begin
@@ -11,16 +12,19 @@ begin
     DLL_PROCESS_ATTACH:
     begin
       Initialize();
+      Exit;
     end;
 
     DLL_PROCESS_DETACH:
     begin
       DeInitialize();
+      Exit;
     end;
   end;
 end;
 
 
+exports SMARTPluginInit;
 exports D3DPERF_BeginEvent;
 exports D3DPERF_EndEvent;
 exports D3DPERF_GetStatus;
@@ -36,8 +40,14 @@ exports Direct3DShaderValidatorCreate9;
 exports PSGPError;
 exports PSGPSampleTexture;
 
+var
+  called: boolean = false;
 begin
   Dll_Process_Detach_Hook := @DllMain;
-  DllMain(DLL_PROCESS_ATTACH);
+  if (not called) then
+  begin
+    DllMain(DLL_PROCESS_ATTACH);
+    called := true;
+  end;
 end.
 

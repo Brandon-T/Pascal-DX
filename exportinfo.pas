@@ -27,7 +27,6 @@ type
   end;
 
   var
-     D3D9Proxy: Direct3D9Proxy;
      OriginalDX: HMODULE;
      d3d9: d3d9_dll;
 
@@ -50,7 +49,6 @@ type
 
 
 implementation
-
 
 type
   ConsoleForegroundColours = (
@@ -88,6 +86,13 @@ begin
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Attributes);
 end;
 
+Procedure WriteConsoleEx(S: String);
+var
+  dwWritten: DWORD;
+begin
+  WriteConsoleA(GetStdHandle(STD_OUTPUT_HANDLE), @S[1], Length(S), @dwWritten, nil);
+end;
+
 Function Initialize(): Boolean;
 var
   Root: Array of TChar;
@@ -116,10 +121,20 @@ begin
     d3d9.PSGPError := GetProcAddress(OriginalDX, 'PSGPError');
     d3d9.PSGPSampleTexture := GetProcAddress(OriginalDX, 'PSGPSampleTexture');
     d3d9.Direct3DCreate9Ex := GetProcAddress(OriginalDX, 'Direct3DCreate9Ex');
+
+    SetConsoleColour(Attributes, Ord(ConsoleForegroundColours.YELLOW));
+    WriteConsoleEx('D3D9 --> ');
+    ResetConsoleColour(Attributes);
+    SetConsoleColour(Attributes, Ord(ConsoleForegroundColours.GREEN));
+    WriteConsoleEx('Successfully Loaded..' + #13#10);
+    ResetConsoleColour(Attributes);
   end else
     begin
+      SetConsoleColour(Attributes, Ord(ConsoleForegroundColours.YELLOW));
+      WriteConsoleEx('D3D9 --> ');
+      ResetConsoleColour(Attributes);
       SetConsoleColour(Attributes, Ord(ConsoleForegroundColours.RED));
-      writeln('ERROR');
+      WriteConsoleEx('ERROR Loading..' + #13#10);
       ResetConsoleColour(Attributes);
       Result := False;
     end;
@@ -195,17 +210,12 @@ end;
 
 Function Direct3DCreate9(SDKVersion: LongWord): Pointer; stdcall;
 type
-  D3D9_Type = Function(SDKVersion: LongWord): Pointer; stdcall;
-
+  fptr = Function(SDKVersion: LongWord): Pointer; stdcall;
 var
-  pOriginal: ^IDirect3D9;
+   Original: Pointer;
 begin
-  pOriginal := D3D9_Type(d3d9.Direct3DCreate9)(SDKVersion);
-  D3D9Proxy := D3D9Proxy.Create(pOriginal);
-
-  MessageBoxA(0, 'Proxy is all good', '', 0);
-  Result := @D3D9Proxy;
-  MessageBoxA(0, 'Result is all good', '', 0);
+  Original := fptr(d3d9.Direct3DCreate9)(SDKVersion);
+  Result := IDirect3D9(Direct3D9Proxy.Create(IDirect3D9(Original)));
 end;
 
 Procedure Direct3DCreate9Ex; stdcall; Assembler; NoStackFrame;

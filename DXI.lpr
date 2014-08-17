@@ -3,10 +3,9 @@ library DXI;
 {$mode objfpc}{$H+}
 
 uses
-  Classes, SysUtils, Windows, Direct3D9, SmartPlugin, D3DDevice9Proxy, D3DProxy,
-  ExportInfo;
+  Classes, SysUtils, Windows, Direct3D9, D3DProxy, ExportInfo;
 
-procedure EntryPoint(Reason: DWORD);
+procedure DllMain(Reason: PtrInt);
 begin
   Case Reason Of
     DLL_PROCESS_ATTACH:
@@ -16,14 +15,12 @@ begin
 
     DLL_PROCESS_DETACH:
     begin
-      Texture._Release();
       DeInitialize();
     end;
   end;
 end;
 
 
-exports SMARTPluginInit;
 exports D3DPERF_BeginEvent;
 exports D3DPERF_EndEvent;
 exports D3DPERF_GetStatus;
@@ -40,6 +37,7 @@ exports PSGPError;
 exports PSGPSampleTexture;
 
 begin
-  EntryPoint(DLL_PROCESS_ATTACH);
+  Dll_Process_Detach_Hook := @DllMain;
+  DllMain(DLL_PROCESS_ATTACH);
 end.
 

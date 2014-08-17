@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
-  <Compiler Value="C:\lazarus\fpc\2.6.2\bin\i386-win32\fpc.exe" Date="1146920661"/>
-  <Params Value=" -MObjFPC -Scghi -WR -O1 -g -gl -vewnhi -FiC:\Users\Brandon\Desktop\Code\PSDXI\lib\i386-win32 -FuC:\Users\Brandon\Desktop\Code\PSDXI\lib\i386-win32\d3d9 -FuC:\Users\Brandon\Desktop\Code\PSDXI\ -FUC:\Users\Brandon\Desktop\Code\PSDXI\lib\i386-win32\ -l DXI.lpr"/>
+  <Compiler Value="C:\lazarus\fpc\2.6.4\bin\i386-win32\fpc.exe" Date="1150455029"/>
+  <Params Value=" -MObjFPC -Scghi -WR -O1 -g -gl -vewnhi -FiC:\Users\Brandon\Desktop\PascalDXI-master\lib\i386-win32 -FuC:\Users\Brandon\Desktop\PascalDXI-master\lib\i386-win32\d3d9 -FuC:\Users\Brandon\Desktop\PascalDXI-master\ -FUC:\Users\Brandon\Desktop\PascalDXI-master\lib\i386-win32\ -l DXI.lpr"/>
 </CONFIG>

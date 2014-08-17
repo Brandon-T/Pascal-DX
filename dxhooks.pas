@@ -16,10 +16,6 @@ Procedure EndSceneHook(ptr_Direct3DDevice9: IDirect3DDevice9);
 var
   weakRef_Direct3DDevice9: IDirect3DDevice9;
   block: IDirect3DStateBlock9;
-  {Ptr: Pointer;
-  Mini: Boolean;
-  W, H: Integer;
-  Fmt: D3DFormat;}
   X, Y: Integer;
   Minimised: Boolean;
 begin

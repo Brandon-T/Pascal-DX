@@ -8,9 +8,9 @@ uses
   Classes, SysUtils, Windows, Direct3D9;
 
 type
-  SMARTGetMousePos = procedure(var X, Y: Integer);
-  SMARTSetCapture = procedure(Enabled: Boolean);
-  SMARTButtonPressed = procedure(ID: Integer; State: Boolean);
+  SMARTGetMousePos = procedure(var X, Y: Integer); cdecl;
+  SMARTSetCapture = procedure(Enabled: Boolean); cdecl;
+  SMARTButtonPressed = procedure(ID: Integer; State: Boolean); cdecl;
 
   PSMARTButtonPressed = ^SMARTButtonPressed;
   PPChar = ^PChar;
@@ -27,7 +27,7 @@ type
     SetCapture: SMARTSetCapture;
   end;
 
-  PSmartInfo = ^SmartInfo;
+  PSMARTInfo = ^SmartInfo;
 
   D3DVertex = packed record
     X, Y, Z, RHW: Single;
@@ -36,16 +36,16 @@ type
   end;
 
 var
-  Texture: IDirect3DTexture9;
-  TexturePixels: ^Byte;
   SmartGlobal: ^SMARTInfo;
   SmartDebugEnabled: Boolean;
   SmartDirectXEnabled: Boolean;
 
 Procedure BltSmartBuffer(Device: IDirect3DDevice9);
-Function dxReadPixels(Device: IDirect3DDevice9; Buffer: Pointer; var DC: HDC; var Width, Height: Integer; Format: D3DFormat = D3DFMT_UNKNOWN): HRESULT;
-Procedure DrawCircle(Device: IDirect3DDevice9; MX, MY, R: Single; Colour: D3DCOLOR = $FF);
-Procedure SMARTPluginInit(ptr: PSmartInfo; ReplaceButtons: PBool; ButtonCount: PInt; ButtonText: PPPChar; ButtonIDs: PPInt; ButtonCallback: PSMARTButtonPressed) cdecl;
+Function dxReadPixels(Device: IDirect3DDevice9; Buffer: Pointer; var Minimised: Boolean; var Width, Height: Integer; Format: D3DFormat = D3DFMT_UNKNOWN): HRESULT;
+Procedure DrawCircle(Device: IDirect3DDevice9; MX, MY, R: Single; Colour: TD3DColor = $FFFF0000); {ARGB <OR> D3DCOLOR_RGBA($FF, $0, $0, $FF)}
+Procedure SMARTPluginInit(ptr: PSMARTInfo; ReplaceButtons: PBool; ButtonCount: PInt; ButtonText: PPPChar; ButtonIDs: PPInt; ButtonCallback: PSMARTButtonPressed) cdecl;
+
+
 
 implementation
 
@@ -54,30 +54,28 @@ const
   BtnTexts: array[0..1] of PChar = ('Disable Direct-X_Enable Direct-X', 'Enable Debug_Disable dxDebug');
 
 
-
-procedure SMART_ButtonPressed(ID: Integer; State: Boolean);
+procedure SMART_ButtonPressed(ID: Integer; State: Boolean); cdecl;
 begin
   case ID of
-    100: if (State) Then
+    100:
+         if (State) Then
          begin
            SmartGlobal^.SetCapture(False);
            SmartDirectXEnabled := True;
          end else
            begin
-             SmartGlobal^.SetCapture(False);
+             SmartGlobal^.SetCapture(True);
              SmartDirectXEnabled := False;
            end;
-    101: if (State) Then
-           SmartDebugEnabled := False
-         Else
-           SmartDebugEnabled := True;
+
+    101:
+         SmartDebugEnabled := Not State;
   end;
 end;
 
-Procedure SMARTPluginInit(ptr: PSmartInfo; ReplaceButtons: PBool; ButtonCount: PInt; ButtonText: PPPChar; ButtonIDs: PPInt; ButtonCallback: PSMARTButtonPressed) cdecl;
+Procedure SMARTPluginInit(ptr: PSMARTInfo; ReplaceButtons: PBool; ButtonCount: PInt; ButtonText: PPPChar; ButtonIDs: PPInt; ButtonCallback: PSMARTButtonPressed) cdecl;
 begin
   SmartGlobal := ptr;
-
   if (ptr <> nil) then
   begin
     ReplaceButtons^ := True;
@@ -101,18 +99,17 @@ begin
   Result.V := V;
 end;
 
-Procedure LoadTexture(Device: IDirect3DDevice9; Buffer: Pointer; Width, Height: Integer; out Texture: IDirect3DTexture9);
+Procedure LoadTexture(Device: IDirect3DDevice9; Buffer: Pointer; Width, Height: Integer; out Tex: IDirect3DTexture9);
 var
-   Rect: D3DLOCKED_RECT;
+   Rect: TD3DLockedRect;
 begin
-  Device.CreateTexture(Width, Height, 1, 0, D3DFMT_A8R8G8B8, D3DPOOL_MANAGED, Texture, nil);
-  Texture.LockRect(0, Rect, nil, D3DLOCK_DISCARD);
-  TexturePixels := Rect.pBits;
-  Texture.UnlockRect(0);
-  Move(Buffer, TexturePixels, Width * Height * 4);
+  Device.CreateTexture(Width, Height, 1, 0, D3DFMT_A8R8G8B8, D3DPOOL_MANAGED, Tex, nil);
+  Tex.LockRect(0, Rect, nil, D3DLOCK_DISCARD);
+  CopyMemory(Rect.pBits, Buffer, Width * Height * 4);
+  Tex.UnlockRect(0);
 end;
 
-Procedure DrawTexture(Device: IDirect3DDevice9; Texture: IDirect3DTexture9; X1, Y1, X2, Y2: Single);
+Procedure DrawTexture(Device: IDirect3DDevice9; Tex: IDirect3DTexture9; X1, Y1, X2, Y2: Single);
 const
   VERTEX_FVF_TEX = (D3DFVF_XYZRHW or D3DFVF_DIFFUSE or D3DFVF_TEX1);
 var
@@ -129,7 +126,7 @@ Begin
   Vertices[3] := MakeD3DVertex(X2, Y2, 1.0, 1.0, D3DCOLOR_RGBA($FF, $FF, $FF, $FF), 1.0 + UOffset, 1.0 + VOffset);
 
   Device.SetFVF(VERTEX_FVF_TEX);
-  Device.SetTexture(0, Texture);
+  Device.SetTexture(0, Tex);
   Device.DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, 2, Vertices, SizeOf(D3DVertex));
   Device.SetTexture(0, nil);
 End;
@@ -139,6 +136,7 @@ var
   Ptr: ^UInt8;
   R, G, B: UInt8;
   I, J, Width, Height: Integer;
+  Tex: IDirect3DTexture9;
 begin
   if (SmartGlobal <> nil) then
   begin
@@ -146,9 +144,9 @@ begin
     Width := SmartGlobal^.Width;
     Height := SmartGlobal^.Height;
 
-    For I := 0 To Height do
+    For I := 0 To Height - 1 do
     begin
-      For J := 0 To Width do
+      For J := 0 To Width - 1 do
       begin
         B := Ptr^;
         Inc(Ptr);
@@ -167,19 +165,22 @@ begin
       end;
     end;
 
-    LoadTexture(Device, SmartGlobal^.dbg, SmartGlobal^.width, SmartGlobal^.height, Texture);
-    DrawTexture(Device, Texture, 0, 0, SmartGlobal^.Width, SmartGlobal^.Height);
+    LoadTexture(Device, SmartGlobal^.dbg, SmartGlobal^.width, SmartGlobal^.height, Tex);
+    DrawTexture(Device, Tex, 0, 0, SmartGlobal^.Width, SmartGlobal^.Height);
+    Tex._Release();  //would be WAY FASTER/BETTER to release only on device reset.
   end;
 end;
 
-Function dxReadPixels(Device: IDirect3DDevice9; Buffer: Pointer; var DC: HDC; var Width, Height: Integer; Format: D3DFormat = D3DFMT_UNKNOWN): HRESULT;
+Function dxReadPixels(Device: IDirect3DDevice9; Buffer: Pointer; var Minimised: Boolean; var Width, Height: Integer; Format: D3DFormat = D3DFMT_UNKNOWN): HRESULT;
 var
   RenderTarget: IDirect3DSurface9;
   DestTarget: IDirect3DSurface9;
   Descriptor: D3DSURFACE_DESC;
   Rect: D3DLOCKED_RECT;
+  DC: HDC;
 begin
   Result := Device.GetRenderTarget(0, RenderTarget);
+
   if (Result = S_OK) then
   begin
     if ((Width = 0) or (Height = 0) or (Format = D3DFMT_UNKNOWN)) then
@@ -190,18 +191,22 @@ begin
       Format := Descriptor.Format;
     end;
 
+    RenderTarget.GetDC(DC);
+    Minimised := IsIconic(WindowFromDC(DC)); //optional optimisation. If the window is minimised, we don't draw debug!
+    RenderTarget.ReleaseDC(DC);
     Result := Device.CreateOffscreenPlainSurface(Width, Height, Format, D3DPOOL_SYSTEMMEM, DestTarget, nil);
     Result := Device.GetRenderTargetData(RenderTarget, DestTarget);
     DestTarget.LockRect(Rect, nil, D3DLOCK_READONLY);
-    Move(Rect.pBits, Buffer, Width * Height * 4);
+    CopyMemory(Buffer, Rect.pBits, Width * Height * 4);
     DestTarget.UnlockRect();
+    DestTarget._Release();
+    DestTarget := nil;
   end;
-
   RenderTarget._Release();
-  DestTarget._Release();
+  RenderTarget := nil;
 end;
 
-Procedure DrawCircle(Device: IDirect3DDevice9; MX, MY, R: Single; Colour: D3DCOLOR = $FF);
+Procedure DrawCircle(Device: IDirect3DDevice9; MX, MY, R: Single; Colour: TD3DColor);
 const
   Resolution = 10;
   VERTEX_FVF_TEX = (D3DFVF_XYZRHW or D3DFVF_DIFFUSE or D3DFVF_TEX1);

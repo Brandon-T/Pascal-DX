@@ -12,27 +12,23 @@ Procedure EndSceneHook(ptr_Direct3DDevice9: IDirect3DDevice9);
 
 implementation
 
-Procedure WriteConsoleEx(S: String);
-var
-  dwWritten: DWORD;
-begin
-  WriteConsoleA(GetStdHandle(STD_OUTPUT_HANDLE), @S[1], Length(S), @dwWritten, nil);
-end;
-
 Procedure EndSceneHook(ptr_Direct3DDevice9: IDirect3DDevice9);
 var
-  dc: HDC;
-  X, Y: Integer;
   weakRef_Direct3DDevice9: IDirect3DDevice9;
   block: IDirect3DStateBlock9;
-  Ptr: Pointer;
+  {Ptr: Pointer;
+  Mini: Boolean;
+  W, H: Integer;
+  Fmt: D3DFormat;}
+  X, Y: Integer;
+  Minimised: Boolean;
 begin
-  dc := 0;
+  Minimised := False;
   weakRef_Direct3DDevice9 :=  IDirect3DDevice9(ptr_Direct3DDevice9);
 
-  if ((SmartGlobal <> nil) and (SmartGlobal^.version > 0)) then
+  if (SmartGlobal^.Version >= $08010000) then
   begin
-    //dxReadPixels(weakRef_Direct3DDevice9, SmartGlobal^.img, dc, SmartGlobal^.width, SmartGlobal^.height);
+    dxReadPixels(weakRef_Direct3DDevice9, SmartGlobal^.img, Minimised, SmartGlobal^.width, SmartGlobal^.height);
     weakRef_Direct3DDevice9.CreateStateBlock(D3DSBT_ALL, block);
     block.Capture();
 
@@ -45,16 +41,15 @@ begin
     weakRef_Direct3DDevice9.SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
     weakRef_Direct3DDevice9.SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 
-    {if (SmartDebugEnabled) then
-    begin
+    if (SmartDebugEnabled and (Not Minimised)) then
        BltSmartBuffer(weakRef_Direct3DDevice9);
-    end;}
 
     X := -1; Y := -1;
+    SmartGlobal^.getMousePos(X, Y);
 
     if ((X > -1) and (Y > -1)) then
     begin
-      //weakRef_Direct3DDevice9.SetRenderState(D3DRS_ZFUNC,D3DCMP_NEVER);
+      //weakRef_Direct3DDevice9^.SetRenderState(D3DRS_ZFUNC,D3DCMP_NEVER);
       weakRef_Direct3DDevice9.SetTexture(0, nil);
       weakRef_Direct3DDevice9.SetPixelShader(nil);
       weakRef_Direct3DDevice9.SetVertexShader(nil);

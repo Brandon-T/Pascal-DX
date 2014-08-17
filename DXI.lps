@@ -13,7 +13,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="3"/>
         <CursorPos X="12" Y="21"/>
-        <UsageCount Value="48"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -22,9 +22,9 @@
         <UnitName Value="SmartPlugin"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="119"/>
-        <CursorPos X="1" Y="137"/>
-        <UsageCount Value="48"/>
+        <TopLine Value="144"/>
+        <CursorPos X="29" Y="147"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -34,7 +34,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="97"/>
         <CursorPos X="6" Y="1"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="52"/>
       </Unit2>
       <Unit3>
         <Filename Value="d3dproxy.pas"/>
@@ -43,7 +43,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="129"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="51"/>
       </Unit3>
       <Unit4>
         <Filename Value="exportinfo.pas"/>
@@ -51,218 +51,212 @@
         <UnitName Value="ExportInfo"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="86"/>
+        <TopLine Value="97"/>
         <CursorPos X="1" Y="89"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
+        <Filename Value="dxhooks.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="DXHooks"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="35"/>
+        <CursorPos X="48" Y="45"/>
+        <UsageCount Value="32"/>
+        <Loaded Value="True"/>
+      </Unit5>
+      <Unit6>
         <Filename Value="lib\i386-win32\d3d9\Direct3D9.pas"/>
         <UnitName Value="Direct3D9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="376"/>
-        <CursorPos X="3" Y="388"/>
-        <UsageCount Value="19"/>
-      </Unit5>
-      <Unit6>
-        <Filename Value="d3ddevice9proxy.pas"/>
-        <UnitName Value="D3DDevice9Proxy"/>
-        <EditorIndex Value="3"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="361"/>
-        <CursorPos X="6" Y="369"/>
-        <UsageCount Value="21"/>
-        <Loaded Value="True"/>
+        <TopLine Value="149"/>
+        <CursorPos X="25" Y="91"/>
+        <UsageCount Value="20"/>
       </Unit6>
       <Unit7>
+        <Filename Value="d3ddevice9proxy.pas"/>
+        <UnitName Value="D3DDevice9Proxy"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="357"/>
+        <CursorPos X="6" Y="369"/>
+        <UsageCount Value="24"/>
+      </Unit7>
+      <Unit8>
         <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\win\wininc\ascfun.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="93"/>
         <CursorPos X="41" Y="103"/>
-        <UsageCount Value="9"/>
-      </Unit7>
-      <Unit8>
+        <UsageCount Value="8"/>
+      </Unit8>
+      <Unit9>
         <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\win\wininc\base.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="170"/>
         <CursorPos X="6" Y="180"/>
-        <UsageCount Value="9"/>
-      </Unit8>
-      <Unit9>
+        <UsageCount Value="8"/>
+      </Unit9>
+      <Unit10>
         <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\inc\dynlibs.pas"/>
         <UnitName Value="dynlibs"/>
         <WindowIndex Value="0"/>
         <TopLine Value="35"/>
         <CursorPos X="10" Y="45"/>
-        <UsageCount Value="9"/>
-      </Unit9>
-      <Unit10>
+        <UsageCount Value="8"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\inc\systemh.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="979"/>
         <CursorPos X="11" Y="959"/>
-        <UsageCount Value="10"/>
-      </Unit10>
-      <Unit11>
+        <UsageCount Value="9"/>
+      </Unit11>
+      <Unit12>
         <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\win32\system.pp"/>
         <UnitName Value="System"/>
         <WindowIndex Value="0"/>
         <TopLine Value="99"/>
         <CursorPos X="3" Y="112"/>
-        <UsageCount Value="10"/>
-      </Unit11>
-      <Unit12>
+        <UsageCount Value="9"/>
+      </Unit12>
+      <Unit13>
         <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\win\wininc\struct.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1526"/>
         <CursorPos X="6" Y="1054"/>
-        <UsageCount Value="10"/>
-      </Unit12>
-      <Unit13>
+        <UsageCount Value="9"/>
+      </Unit13>
+      <Unit14>
         <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\win32\windows.pp"/>
         <UnitName Value="windows"/>
         <WindowIndex Value="0"/>
         <TopLine Value="33"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="10"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="dxhooks.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="DXHooks"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="49"/>
-        <CursorPos X="7" Y="55"/>
-        <UsageCount Value="24"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="9"/>
       </Unit14>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="15" Column="45" TopLine="2"/>
+        <Caret Line="27" Column="9" TopLine="12"/>
       </Position1>
       <Position2>
-        <Filename Value="dxhooks.pas"/>
-        <Caret Line="11" Column="62" TopLine="1"/>
+        <Filename Value="smartplugin.pas"/>
+        <Caret Line="38" Column="4" TopLine="51"/>
       </Position2>
       <Position3>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="15" Column="52" TopLine="1"/>
+        <Caret Line="31" Column="3" TopLine="9"/>
       </Position3>
       <Position4>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="26" Column="18" TopLine="19"/>
+        <Caret Line="27" Column="3" TopLine="9"/>
       </Position4>
       <Position5>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="11" Column="52" TopLine="5"/>
+        <Caret Line="99" Column="6" TopLine="77"/>
       </Position5>
       <Position6>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="22" Column="68" TopLine="11"/>
+        <Caret Line="39" Column="93" TopLine="26"/>
       </Position6>
       <Position7>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="24" Column="57" TopLine="11"/>
+        <Caret Line="85" Column="48" TopLine="72"/>
       </Position7>
       <Position8>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="26" Column="63" TopLine="13"/>
+        <Caret Line="83" Column="17" TopLine="70"/>
       </Position8>
       <Position9>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="27" Column="62" TopLine="14"/>
+        <Caret Line="47" Column="21" TopLine="30"/>
       </Position9>
       <Position10>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="59" Column="3" TopLine="18"/>
+        <Caret Line="85" Column="20" TopLine="63"/>
       </Position10>
       <Position11>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="32" Column="65" TopLine="18"/>
+        <Caret Line="83" Column="37" TopLine="70"/>
       </Position11>
       <Position12>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="34" Column="79" TopLine="28"/>
+        <Caret Line="28" Column="1" TopLine="24"/>
       </Position12>
       <Position13>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="46" Column="22" TopLine="39"/>
+        <Caret Line="23" Column="80" TopLine="10"/>
       </Position13>
       <Position14>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="49" Column="31" TopLine="37"/>
+        <Caret Line="21" Column="90" TopLine="10"/>
       </Position14>
       <Position15>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="55" Column="52" TopLine="40"/>
+        <Caret Line="23" Column="90" TopLine="10"/>
       </Position15>
       <Position16>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="59" Column="10" TopLine="40"/>
+        <Caret Line="59" Column="86" TopLine="39"/>
       </Position16>
       <Position17>
-        <Filename Value="d3ddevice9proxy.pas"/>
-        <Caret Line="370" Column="54" TopLine="427"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="70" Column="52" TopLine="17"/>
       </Position17>
       <Position18>
-        <Filename Value="DXI.lpr"/>
-        <Caret Line="21" Column="12" TopLine="3"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="23" Column="85" TopLine="10"/>
       </Position18>
       <Position19>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="47" Column="18" TopLine="34"/>
+        <Caret Line="70" Column="88" TopLine="52"/>
       </Position19>
       <Position20>
         <Filename Value="smartplugin.pas"/>
-        <Caret Line="81" Column="24" TopLine="72"/>
+        <Caret Line="81" Column="19" TopLine="69"/>
       </Position20>
       <Position21>
-        <Filename Value="smartplugin.pas"/>
-        <Caret Line="89" Column="38" TopLine="81"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="36" Column="27" TopLine="22"/>
       </Position21>
       <Position22>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="15" Column="1" TopLine="8"/>
+        <Caret Line="37" Column="49" TopLine="24"/>
       </Position22>
       <Position23>
         <Filename Value="smartplugin.pas"/>
-        <Caret Line="11" Column="45" TopLine="3"/>
+        <Caret Line="11" Column="43" TopLine="4"/>
       </Position23>
       <Position24>
-        <Filename Value="smartplugin.pas"/>
-        <Caret Line="89" Column="25" TopLine="80"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="41" Column="7" TopLine="29"/>
       </Position24>
       <Position25>
-        <Filename Value="dxhooks.pas"/>
-        <Caret Line="34" Column="5" TopLine="28"/>
+        <Filename Value="smartplugin.pas"/>
+        <Caret Line="12" Column="56" TopLine="5"/>
       </Position25>
       <Position26>
         <Filename Value="smartplugin.pas"/>
-        <Caret Line="199" Column="52" TopLine="180"/>
+        <Caret Line="87" Column="23" TopLine="76"/>
       </Position26>
       <Position27>
         <Filename Value="dxhooks.pas"/>
-        <Caret Line="52" Column="65" TopLine="44"/>
+        <Caret Line="46" Column="18" TopLine="35"/>
       </Position27>
       <Position28>
-        <Filename Value="smartplugin.pas"/>
-        <Caret Line="184" Column="6" TopLine="163"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="59" Column="5" TopLine="19"/>
       </Position28>
       <Position29>
-        <Filename Value="smartplugin.pas"/>
-        <Caret Line="139" Column="13" TopLine="136"/>
+        <Filename Value="dxhooks.pas"/>
+        <Caret Line="31" Column="63" TopLine="22"/>
       </Position29>
-      <Position30>
-        <Filename Value="smartplugin.pas"/>
-        <Caret Line="141" Column="13" TopLine="136"/>
-      </Position30>
     </JumpHistory>
   </ProjectSession>
   <EditorMacros Count="0"/>
